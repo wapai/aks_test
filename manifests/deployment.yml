@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: wapaiakstest 
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: wapaiakstest
+  template:
+    metadata:
+      labels:
+        app: wapaiakstest 
+    spec:
+      containers:
+        - name: wapaiakstest 
+          image: arcnametestaks.azurecr.io/wapaiakstest
+          ports:
+          - containerPort: 80
