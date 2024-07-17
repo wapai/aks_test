@@ -12,7 +12,7 @@ variables:
 
   # Container registry service connection established during pipeline creation
   dockerRegistryServiceConnection: '259c77a4-6d54-430f-b141-9c0b990124ba'
-  imageRepository: 'wapaiakstest'
+  imageRepository: 'wordpress/wordpress-php-nginx'
   containerRegistry: 'arcnametestaks.azurecr.io'
   dockerfilePath: '**/Dockerfile'
   tag: '$(Build.BuildId)'

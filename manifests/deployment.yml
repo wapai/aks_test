@@ -1,19 +1,33 @@
-apiVersion : apps/v1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: wapaiakstest 
+  name: wordpress
 spec:
-  replicas: 1
   selector:
     matchLabels:
-      app: wapaiakstest
+      app: wordpress
+  replicas: 2
   template:
     metadata:
       labels:
-        app: wapaiakstest 
+        app: wordpress
     spec:
       containers:
-        - name: wapaiakstest 
-          image: arcnametestaks.azurecr.io/wapaiakstest
-          ports:
-          - containerPort: 80
+      - name: wordpress
+        image: arcnametestaks.azurecr.io/wordpress/wordpress-php-nginx
+        env:
+        - name: WORDPRESS_DB_HOST
+          value: mysql:3306
+        - name: WORDPRESS_DB_USER
+          value: wordpress
+        - name: WORDPRESS_DB_PASSWORD
+          value: wordpress
+        - name: WORDPRESS_DB_NAME
+          value: wordpress
+        resources:
+          requests:
+            memory: 512Mi
+          limits:
+            memory: 1024Mi
+        ports:
+        - containerPort: 80
