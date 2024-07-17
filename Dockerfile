@@ -20,7 +20,7 @@ RUN curl -o wordpress.tar.gz https://wordpress.org/latest.tar.gz \
     && mv wordpress/* /var/www/html/ \
     && chown -R www-data:www-data /var/www/html
 
-RUN sed -i '2i echo "bugを修正のところ";' /var/www/html/wp-admin/setup-config.php
+# RUN sed -i '2i echo "bugを修正のところ";' /var/www/html/wp-admin/setup-config.php
 
 # COPY wp-config.php /var/www/html/wp-config.php
 
